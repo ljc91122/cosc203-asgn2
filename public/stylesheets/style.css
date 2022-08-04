@@ -1,0 +1,243 @@
+/* http://cssobfuscator.com/ */
+
+/* CSS vars */
+:root {
+    --theme-main-dark: #1769aa;
+    --theme-main: #2196f3;
+    --theme-main-light: #4dabf5;
+    --aside-width: 300px;
+    --photo-width: 350px;
+    --photo-height: 350px;
+    --header-height: 100px;
+    --footer-height: 50px;
+}
+
+body {
+    background: #eee;
+    margin: 0;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 20px;
+    color: #333333;
+}
+
+/* page header */
+header, footer {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--theme-main);
+    color: white;
+    position: relative;
+    z-index: 1000;
+}
+header {
+    height: var(--header-height);
+}
+footer {
+    height: var(--footer-height);
+}
+header img {
+    height: 50px;
+    margin-right: 16px;
+}
+header h1 {
+    font-size: 50px;
+}
+main {
+    display: flex;
+    min-height: calc(100vh - var(--header-height) - var(--footer-height));
+}
+
+/* form style */
+aside {
+    display: flex;
+    flex-flow: column;
+    align-items: stretch;
+    background: white;
+    flex-basis: var(--aside-width);
+    padding: 16px;
+}
+label, select, input, button {
+    display: block;
+    width: 100%;
+    border-radius: 4px;
+}
+select, input, button {
+    margin-bottom: 8px;
+    height: 32px;
+}
+button {
+    background: var(--theme-main);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: large;
+    box-shadow: 1px 1px 4px #0007;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+button:hover {
+    background: var(--theme-main-light);
+}
+button:active {
+    background: var(--theme-main-dark);
+}
+hr {
+    /* height: 0px; */
+    width: 100%;
+    border: 1px solid lightgray;
+}
+
+/* bird cards */
+#birds {
+    padding: 32px;
+    flex-basis: calc(100vw - var(--aside-width));
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: baseline;
+    gap: 16px;
+    box-shadow: inset 0px 0px 8px #0007;
+}
+.card {
+    box-shadow: 2px 2px 8px #0007;
+    background: white;
+    border-radius: 5px;
+    max-width: var(--photo-width);
+    flex-grow: 1;
+}
+.card-image {
+    position: relative;
+}
+
+.card-image:hover {
+    cursor: pointer;
+}
+
+.card-image img {
+    border-radius: 5px;
+    object-fit: cover;
+    width: 100%;
+    height: var(--photo-height);
+    display: block;
+}
+.card-image .card-title {
+    background: linear-gradient(0deg, #000000aa 20%, transparent 100%);
+    /* background: #0007; */
+    position: absolute;
+    width: calc(100% - 20px);
+    height: 50%;
+    bottom: 0px;
+    padding-left: 20px;
+    color: white;
+}
+.card-image .card-title p {
+    position: absolute;
+    font-size: x-large;
+    bottom:8px;
+}
+.card-image .card-title span {
+    position: absolute;
+    font-size: small;
+    bottom: 8px;
+}
+
+/* card content style */
+.card-content {
+    padding: 20px;
+}
+h2 {
+    margin: 0;
+}
+ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+li {
+    display: flex;
+}
+li b {
+    width: 115px;
+}
+li span {
+    width: calc(100% - 115px);
+}
+
+/* conservation status circles */
+.circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    position: absolute;
+    right: 16px;
+    bottom: -25px;
+    display: block;
+    z-index: 100;
+    border: 4px solid white;
+}
+
+.circle-small {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-right: 8px;
+    border: 1px solid white;
+}
+
+/* conservation circles colours */
+.status-0,
+.status-1,
+.status-2,
+.status-3,
+.status-4,
+.status-5,
+.status-6,
+.status-7,
+.status-8,
+.status-9 {
+    color: white;
+}
+
+.status-0 {
+    /* background: #07e646 */
+    background: #02a028
+}
+
+.status-1 {
+    background: #649a31;
+}
+
+.status-2 {
+    background: #99cb68;
+}
+
+.status-3 {
+    background: #fecc33;
+}
+
+.status-4 {
+    background: #fe9a01;
+}
+
+.status-5 {
+    background: #c26967;
+}
+
+.status-6 {
+    background: #9b0000;
+}
+
+.status-7 {
+    background: #660032;
+}
+
+.status-8 {
+    background: #320033;
+}
+
+.status-9 {
+    background: black;
+}

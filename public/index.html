@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en-nz">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COSC203: Birds of Aotearoa</title>
+    <script type="module" src="javascripts/script.js" defer></script>
+    <link rel="stylesheet" href="stylesheets/style.css">
+</head>
+
+<body>
+    <header>
+        <img src="images/kiwi-logo.svg" />
+        <h1>Birds of Aotearoa</h1>
+    </header>
+
+    <main>
+        <aside>
+            <h2>Filter Birds</h2>
+            <form>
+                <label for="searchTerm">Search </label>
+                <input type="text" id="searchTerm" placeholder="e.g. kiwi">
+                
+                <label for="status">Conservation Status</label>
+                <select id="status">
+                    <option selected>All</option>
+                    <option class="status-0">Not Threatened</option>
+                    <option class="status-1">Naturally Uncommon</option>
+                    <option class="status-2">Relict</option>
+                    <option class="status-3">Recovering</option>
+                    <option class="status-4">Declining</option>
+                    <option class="status-5">Nationally Increasing</option>
+                    <option class="status-6">Nationally Vulnerable</option>
+                    <option class="status-7">Nationally Endangered</option>
+                    <option class="status-8">Nationally Critical</option>
+                    <option class="status-9">Data Deficient</option>
+                </select>
+
+                <label for="sort">Sort by</label>
+                <select id="sort">
+                    <optgroup label="Name">
+                        <option selected>Alphabetical</option>
+                        <option>Reverse alphabetical</option>
+                    </optgroup>
+                    <optgroup label="Length">
+                        <option>Shortest to longest</option>
+                        <option>Longest to shortest</option>
+                    </optgroup>
+                    <optgroup label="Weight">
+                        <option>Lightest to heaviest</option>
+                        <option>Heaviest to lightest.</option>
+                    </optgroup>
+                </select>
+
+                <button>Filter results</button>
+                <button>CREATE NEW BIRD</button>
+            </form>
+            <p><span id="searchResults">no</span> results found</p>
+            <hr>
+            <h2>Conservation Status</h2>
+            <ul>
+                <li style="position: relative;">
+                    <div class="circle-small status-0"></div><span>Not Threatened</span>
+                </li>
+                <li style="position: relative;">
+                    <div class="circle-small status-1"></div><span>Naturally Uncommon</span>
+                </li>
+                <li style="position: relative;">
+                    <div class="circle-small status-2"></div><span>Relicit</span>
+                </li>
+                <li style="position: relative;">
+                    <div class="circle-small status-3"></div><span>Recovering</span>
+                </li>
+                <li style="position: relative;">
+                    <div class="circle-small status-4"></div><span>Declining</span>
+                </li>
+                <li style="position: relative;">
+                    <div class="circle-small status-5"></div><span>Nationally Increasing</span>
+                </li>
+                <li style="position: relative;">
+                    <div class="circle-small status-6"></div><span>Nationally Vulnerable</span>
+                </li>
+                <li style="position: relative;">
+                    <div class="circle-small status-7"></div><span>Nationally Endangered</span>
+                </li>
+                <li style="position: relative;">
+                    <div class="circle-small status-8"></div><span>Nationally Critical</span>
+                </li>
+                <li style="position: relative;">
+                    <div class="circle-small status-9"></div><span>Data Deficient</span>
+                </li>
+            </ul>
+            <p>Conservation status from <a href="https://www.doc.govt.nz/nature/conservation-status/">DOC website</a></p>
+        </aside>
+        <div id="birds">
+        </div>
+    </main>
+    <footer>
+        <p>
+            Data licensed from <a href="https://www.birdsnz.org.nz/">Birds New Zealand</a> for educational use within the University of Otago.
+        </p>
+    </footer>
+</body>
+
+</html>
