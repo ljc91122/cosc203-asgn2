@@ -16,11 +16,12 @@ router.get('/', function(req, res) {
 });
 */
 
-router.get('/bird', function(req, res, next) {
-  console.log(path.join(__dirname, '../public/bird.html'));
-  console.log(req.query.foo);
-  res.sendFile(path.join(__dirname, '../public/bird.html'));
-});
+// router.get('/bird', function(req, res, next) {
+//   console.log(req.query.bird_name);
+//   res.sendFile(path.join(__dirname, '../public/bird.html'));
+// });
+
+router.get('/bird/:bird_name', bird_controller.bird_item);
 
 router.get('/data', bird_controller.bird_list);
 

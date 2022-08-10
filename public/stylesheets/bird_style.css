@@ -1,0 +1,61 @@
+/* http://cssobfuscator.com/ */
+
+/* CSS vars */
+:root {
+    --theme-main-dark: #1769aa;
+    --theme-main: #2196f3;
+    --theme-main-light: #4dabf5;
+    --aside-width: 300px;
+    --photo-width: 350px;
+    --photo-height: 350px;
+    --header-height: 100px;
+    --footer-height: 50px;
+}
+
+body {
+    background: #eee;
+    margin: 0;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 20px;
+    color: #333333;
+}
+
+/* page header */
+header, footer {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--theme-main);
+    color: white;
+    position: relative;
+    z-index: 1000;
+}
+header {
+    height: var(--header-height);
+}
+footer {
+    height: var(--footer-height);
+}
+header img {
+    height: 50px;
+    margin-right: 16px;
+}
+header h1 {
+    font-size: 50px;
+}
+main {
+    display: flex;
+    min-height: calc(100vh - var(--header-height) - var(--footer-height));
+    align-items: center;
+    justify-content: space-around;
+}
+
+
+/* form style */
+hr {
+    /* height: 0px; */
+    width: 100%;
+    border: 1px solid lightgray;
+}
+

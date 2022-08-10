@@ -100,7 +100,7 @@ function create_element_bird_card(bird) {
     /* container for image */
     const imgContainer = document.createElement('div');
     imgContainer.addEventListener('click', () => {
-        location.href = `/bird?foo=123`
+        location.href = `/bird/${bird.primary_name}`
     }, false);
     imgContainer.className = "card-image";
     card.appendChild(imgContainer);
