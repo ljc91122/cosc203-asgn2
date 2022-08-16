@@ -1,0 +1,47 @@
+doctype html
+html(lang='en')
+  head
+    title= bird.primary_name
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='/stylesheets/bird_style.css')
+  body
+    header
+        img(src="/images/kiwi-logo.svg")
+        h1= bird.primary_name
+
+    main 
+
+        form(method='POST' action='')
+          div.form-group
+            label(for='pName') Primary Name:
+            input#pName.form-control(type='text', placeholder=bird.primary_name name='primary_name' required='true')
+          div.form-group
+            label(for='eName') English Name:
+            input#eName.form-control(type='text', placeholder=bird.english_name name='english_name' required='true')
+          div.form-group
+            label(for='sName') Scientific Name:
+            input#sName.form-control(type='text', placeholder=bird.scientific_name name='scientific_name' required='true')          
+          div.form-group
+            label(for='order') Order:
+            input#order.form-control(type='text', placeholder=bird.order name='Order' required='true')
+          div.form-group
+            label(for='family') Family:
+            input#family.form-control(type='text', placeholder=bird.family name='family' required='true')          
+          div.form-group
+            label(for='status') Status:
+            input#status.form-control(type='text', placeholder=bird.status name='status' required='true')          
+          div.form-group
+            label(for='length') Length:
+            input#length.form-control(type='text', placeholder=bird.size.length.value name='length' required='true')          
+          div.form-group
+            label(for='weight') Weight:
+            input#length.form-control(type='text', placeholder=bird.size.weight.value name='weight' required='true') 
+
+          button.btn.btn-primary(type='submit') Submit
+
+        img(src=`/${bird.photo.source}`)
+
+
+    footer 
+        p Data licensed from

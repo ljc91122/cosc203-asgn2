@@ -1,31 +1,38 @@
 doctype html
 html(lang='en')
   head
-    title= title
+    title= bird.primary_name
     meta(charset='utf-8')
     meta(name='viewport', content='width=device-width, initial-scale=1')
     link(rel='stylesheet', href='/stylesheets/bird_style.css')
   body
     header
         img(src="/images/kiwi-logo.svg")
-        h1= title
+        h1= bird.primary_name
 
     main 
 
         block sidebar
+
           ul(class='sidebar-nav')
             li 
-              a(href='#') Home
+              a(href='/') Home
             li 
-              a(href='#') Delete this bird
+              a(href=bird.url + '/delete') Delete this bird
             li 
-              a(href='#') Update this bird
-            li 
-              a(href='#') Create a new bird
+              a(href=bird.url + '/update') Update this bird
+          
         div
-          img(src=bird_img)
-
-        
+          #birdinfo
+            p #[strong #{bird.primary_name}]
+            p= bird.english_name
+            p= 'Scientific_name: ' + bird.scientific_name
+            p= 'Order: ' + bird.order
+            p= 'Family: ' + bird.family
+            p= 'Status: ' + bird.status
+            p= 'Length: ' + bird.size.length.value + ' ' + bird.size.length.units
+            p= 'Weight: ' + bird.size.weight.value + ' ' + bird.size.weight.units
+          img(src=`/${bird.photo.source}`)
 
         //- form(method='POST' action='')
         //-   div.form-group

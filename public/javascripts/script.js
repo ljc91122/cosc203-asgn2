@@ -15,11 +15,17 @@ function fetch_all_data() {
 
 function load_birds(all_bird_data) {
     // attach button to filter/display action
-    const searchBtn = document.querySelector('button');
+    const searchBtn = document.querySelector('#filterbird');
     searchBtn.addEventListener('click', function (e) {
         e.preventDefault();
         display_birds(all_bird_data)
     } );
+
+    const createBtn = document.querySelector('#createbird');
+    createBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        location.href = `/bird/create`;
+    }, false );
 
     // display all birds by default
     display_birds(all_bird_data);
@@ -100,7 +106,7 @@ function create_element_bird_card(bird) {
     /* container for image */
     const imgContainer = document.createElement('div');
     imgContainer.addEventListener('click', () => {
-        location.href = `/bird/${bird.primary_name}`
+        location.href = `/bird/${bird._id}`
     }, false);
     imgContainer.className = "card-image";
     card.appendChild(imgContainer);

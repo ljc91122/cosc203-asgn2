@@ -21,8 +21,19 @@ router.get('/', function(req, res) {
 //   res.sendFile(path.join(__dirname, '../public/bird.html'));
 // });
 
-router.get('/bird/:bird_name', bird_controller.bird_item);
+router.get('/bird/create', bird_controller.bird_create_get);
+router.post('/bird/create', bird_controller.bird_create_post);
+
+router.get('/bird/:id', bird_controller.bird_item);
 
 router.get('/data', bird_controller.bird_list);
+
+
+router.get('/bird/:id/update', bird_controller.bird_update_get);
+router.post('/bird/:id/update', bird_controller.bird_update_post);
+
+router.get('/bird/:id/delete', bird_controller.bird_delete_get);
+
+
 
 module.exports = router;

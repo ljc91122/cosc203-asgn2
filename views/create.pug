@@ -1,0 +1,46 @@
+doctype html
+html(lang='en')
+  head
+    title create bird
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='/stylesheets/bird_style.css')
+  body
+    header
+        img(src="/images/kiwi-logo.svg")
+        h1 Create a Bird
+
+    main 
+
+        form(method='POST' action='' enctype="multipart/form-data")
+          div.form-group
+            label(for='pName') Primary Name:
+            input#pName.form-control(type='text', placeholder='Primary Name' name='primary_name' required='true')
+          div.form-group
+            label(for='eName') English Name:
+            input#eName.form-control(type='text', placeholder='English Name' name='english_name' required='true')
+          div.form-group
+            label(for='sName') Scientific Name:
+            input#sName.form-control(type='text', placeholder='Scientific Name' name='scientific_name' required='true')          
+          div.form-group
+            label(for='order') Order:
+            input#order.form-control(type='text', placeholder='Order' name='Order' required='true')
+          div.form-group
+            label(for='family') Family:
+            input#family.form-control(type='text', placeholder='Family' name='family' required='true')          
+          div.form-group
+            label(for='status') Status:
+            input#status.form-control(type='text', placeholder='status' name='status' required='true')          
+          div.form-group
+            label(for='length') Length:
+            input#length.form-control(type='text', placeholder='length' name='length' required='true')          
+          div.form-group
+            label(for='weight') Weight:
+            input#weight.form-control(type='text', placeholder='weight' name='weight' required='true') 
+          div.form-group  
+            input.form-control(type="file" name="birdpic" required='true')
+
+          button.btn.btn-primary(type='submit') Submit
+
+    footer 
+        p Data licensed from

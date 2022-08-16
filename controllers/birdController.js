@@ -1,9 +1,11 @@
 var Bird = require('../models/bird')
 var async = require('async')
+const multer  = require('multer')
+const upload = multer({ dest: '../public/data/images/' })
 
 const { body,validationResult } = require("express-validator");
 
-// Display list of all Authors.
+// Query list of all bird and return as json.
 exports.bird_list = function (req, res, next) {
 
     Bird.find()//{ "status": "Nationally Vulnerable"}
@@ -17,16 +19,76 @@ exports.bird_list = function (req, res, next) {
 
 };
 
+//Query a specific bird
 exports.bird_item = function (req, res, next) {
 
     Bird.findOne()//{ "status": "Nationally Vulnerable"}
-        .where('primary_name').equals(req.params.bird_name)
-        .select('primary_name photo')
+        .where('_id').equals(req.params.id)
+        //.select('primary_name photo')
         .exec(function (err, bird) {
             if (err) { return next(err); }
             // Successful, so render.
-            res.render('bird', { title: bird.primary_name, bird_img:  `/${bird.photo.source}`});
+            res.render('bird', { bird: bird});
         })
 
 };
 
+//Update a specific bird - GET
+exports.bird_update_get = function (req, res, next) {
+
+    Bird.findOne()//{ "status": "Nationally Vulnerable"}
+        .where('_id').equals(req.params.id)
+        //.select('primary_name photo')
+        .exec(function (err, bird) {
+            if (err) { return next(err); }
+            // Successful, so render.
+            res.render('update', { bird: bird});
+        })
+};
+
+//Update a specific bird - POST
+exports.bird_update_post = function (req, res, next) {
+
+    Bird.findOne()//{ "status": "Nationally Vulnerable"}
+        .where('_id').equals(req.params.id)
+        //.select('primary_name photo')
+        .exec(function (err, bird) {
+            if (err) { return next(err); }
+            // Successful, so render.
+            res.render('bird', { bird: bird});
+        })
+
+};
+
+
+//Delete a specific bird - Get
+exports.bird_delete_get = function (req, res, next) {
+
+    Bird.findByIdAndRemove()//{ "status": "Nationally Vulnerable"}
+        .where('_id').equals(req.params.id)
+        //.select('primary_name photo')
+        .exec(function (err, bird) {
+            if (err) { return next(err); }
+            // Successful, so render.
+            res.redirect('/');
+        })
+
+};
+
+
+//Create a bird - GET
+exports.bird_create_get = function (req, res, next) {
+
+    // Successful, so render.
+    res.render('create', {});
+};
+
+
+//Create a bird - POST
+exports.bird_create_post = [
+    upload.array('photos', 1),
+    function (req, res, next) {
+
+    // Successful, so render.
+    res.render('create', {});
+}];
