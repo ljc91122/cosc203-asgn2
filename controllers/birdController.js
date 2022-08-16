@@ -1,7 +1,19 @@
 var Bird = require('../models/bird')
 var async = require('async')
 const multer  = require('multer')
-const upload = multer({ dest: '../public/data/images/' })
+
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+      cb(null, 'public/data/images')
+    },
+    filename: function (req, file, cb) {
+      const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9)
+      cb(null, file.fieldname + '-' + uniqueSuffix + '.png')
+    }
+  })
+  
+
+const upload = multer({ storage: storage })
 
 const { body,validationResult } = require("express-validator");
 
@@ -86,7 +98,7 @@ exports.bird_create_get = function (req, res, next) {
 
 //Create a bird - POST
 exports.bird_create_post = [
-    upload.array('photos', 1),
+    upload.single('birdpic'),
     function (req, res, next) {
 
     // Successful, so render.
