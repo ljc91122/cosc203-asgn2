@@ -1,5 +1,5 @@
 module.exports = {
-	"undefined": "mongodb+srv://ljc91122:91122ljc91122@cluster0.ihmfqto.mongodb.net/mydb",
-	"dev": "mongodb+srv://ljc91122:91122ljc91122@cluster0.ihmfqto.mongodb.net/mydb",
-	"prod": "mongodb+srv://ljc91122:91122ljc91122@cluster0.ihmfqto.mongodb.net/mydb"
+	"undefined": "mongodb+srv://cosc203:cosc2032022@cluster0.bn4y8xr.mongodb.net/mydb",
+	"dev": "mongodb+srv://cosc203:cosc2032022@cluster0.bn4y8xr.mongodb.net/mydb",
+	"prod": "mongodb+srv://cosc203:cosc2032022@cluster0.bn4y8xr.mongodb.net/mydb"
 }

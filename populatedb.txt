@@ -1,0 +1,3 @@
+//run the following command to populate mongodb with the json file
+
+mongoimport --db mydb --collection nzbird --uri mongodb+srv://cosc203:cosc2032022@cluster0.bn4y8xr.mongodb.net/mydb  --file seeds/nzbird.json --jsonArray
