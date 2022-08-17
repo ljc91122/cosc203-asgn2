@@ -1,6 +1,21 @@
-extends layout
+doctype html
+html(lang='en')
+  head
+    title error
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='/stylesheets/bird_style.css')
+  body
+    header
+        img(src="/images/kiwi-logo.svg")
+        h1 Error!
 
-block content
-  h1= message
-  h2= error.status
-  pre #{error.stack}
+    main 
+
+        h1 #{message} #{error.status}
+        pre #{error.stack}
+
+
+    footer 
+        p Data licensed from
+
