@@ -49,6 +49,7 @@ main {
     min-height: calc(100vh - var(--header-height) - var(--footer-height));
     align-items: center;
     justify-content: space-around;
+    flex-wrap: wrap;
 }
 
 
@@ -59,8 +60,24 @@ hr {
     border: 1px solid lightgray;
 }
 
+#birdcrud li {
+    display: block;
+    width: 100%;
+    border-radius: 4px;
+}
+#birdcrud li {
+    margin-bottom: 8px;
+    height: 42px;
+}
 
-button {
+#birdcrud li:hover {
+    background: var(--theme-main-light);
+}
+#birdcrud li:active {
+    background: var(--theme-main-dark);
+}
+
+#birdcrud li{
     background: var(--theme-main);
     color: white;
     border: none;
@@ -69,18 +86,43 @@ button {
     box-shadow: 1px 1px 4px #0007;
     text-transform: uppercase;
     cursor: pointer;
+    padding: 0px;
+    align-items: center;
+    justify-content: space-around;
+    display: flex;
 }
-button:hover {
+
+#birdcrud a {
+    display: block;
+    color:aliceblue;
+    font-size: medium;
+    text-decoration: none;
+    padding: 5px;
+}
+
+#birdcrud li.del {
+    background-color: crimson;
+}
+
+#birdcrud li:hover {
     background: var(--theme-main-light);
 }
-button:active {
+#birdcrud li:active {
     background: var(--theme-main-dark);
 }
 
+#birdcrud li.del:hover {
+    background-color: crimson;
+}
+
 #birdcrud {
-    border: 3px solid #1769aa ;
     padding:3%;
     display: flex;
     flex-direction: column;
     align-items: stretch;
 }
+
+#birdimg {
+    max-width: 500px;
+}
+

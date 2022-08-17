@@ -11,36 +11,42 @@ html(lang='en')
         h1= bird.primary_name
 
     main 
+        #birdinfo
+          form(method='POST' action='' enctype="multipart/form-data")
+            div.form-group
+              label(for='pName') Primary Name:
+              input#pName.form-control(type='text', value=bird.primary_name name='primary_name')
+            div.form-group
+              label(for='eName') English Name:
+              input#eName.form-control(type='text', value=bird.english_name name='english_name' )
+            div.form-group
+              label(for='sName') Scientific Name:
+              input#sName.form-control(type='text', value=bird.scientific_name name='scientific_name' )          
+            div.form-group
+              label(for='order') Order:
+              input#order.form-control(type='text', value=bird.order name='Order')
+            div.form-group
+              label(for='family') Family:
+              input#family.form-control(type='text', value=bird.family name='family')          
 
-        form(method='POST' action='')
-          div.form-group
-            label(for='pName') Primary Name:
-            input#pName.form-control(type='text', placeholder=bird.primary_name name='primary_name' required='true')
-          div.form-group
-            label(for='eName') English Name:
-            input#eName.form-control(type='text', placeholder=bird.english_name name='english_name' required='true')
-          div.form-group
-            label(for='sName') Scientific Name:
-            input#sName.form-control(type='text', placeholder=bird.scientific_name name='scientific_name' required='true')          
-          div.form-group
-            label(for='order') Order:
-            input#order.form-control(type='text', placeholder=bird.order name='Order' required='true')
-          div.form-group
-            label(for='family') Family:
-            input#family.form-control(type='text', placeholder=bird.family name='family' required='true')          
-          div.form-group
-            label(for='status') Status:
-            input#status.form-control(type='text', placeholder=bird.status name='status' required='true')          
-          div.form-group
-            label(for='length') Length:
-            input#length.form-control(type='text', placeholder=bird.size.length.value name='length' required='true')          
-          div.form-group
-            label(for='weight') Weight:
-            input#length.form-control(type='text', placeholder=bird.size.weight.value name='weight' required='true') 
+            div.form-group
+                label(for='status') Status:
+                select#author.form-control(type='select', placeholder='Select status' name='status' value=bird.status)
+                  for status in statuses
+                    option(value=status selected=(status===bird.status ? 'selected' : false) ) #{status}
 
-          button.btn.btn-primary(type='submit') Submit
+            div.form-group
+              label(for='length') Length:
+              input#length.form-control(type='text', value=bird.size.length.value name='length')          
+            div.form-group
+              label(for='weight') Weight:
+              input#length.form-control(type='text', value=bird.size.weight.value name='weight')
+            div.form-group  
+              input.form-control(type="file" name="birdpic") 
 
-        img(src=`/${bird.photo.source}`)
+            button.btn.btn-primary(type='submit') Submit
+
+        img#birdimg(src=`/${bird.photo.source}`)
 
 
     footer 

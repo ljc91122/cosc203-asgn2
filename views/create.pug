@@ -29,8 +29,10 @@ html(lang='en')
             label(for='family') Family:
             input#family.form-control(type='text', placeholder='Family' name='family' required='true')          
           div.form-group
-            label(for='status') Status:
-            input#status.form-control(type='text', placeholder='status' name='status' required='true')          
+              label(for='status') Status:
+              select#author.form-control(type='select', placeholder='Select status' name='status'  required)
+                for status in statuses
+                  option(value=status) #{status}      
           div.form-group
             label(for='length') Length:
             input#length.form-control(type='text', placeholder='length' name='length' required='true')          

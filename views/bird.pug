@@ -8,31 +8,35 @@ html(lang='en')
   body
     header
         img(src="/images/kiwi-logo.svg")
-        h1= bird.primary_name
+        h1 #{bird.primary_name.trim()}
 
     main 
 
-        block sidebar
+        #birdcrud
 
-          ul(class='sidebar-nav')
+          ul
             li 
               a(href='/') Home
-            li 
-              a(href=bird.url + '/delete') Delete this bird
+
             li 
               a(href=bird.url + '/update') Update this bird
+
+            li.del 
+              a(href=bird.url + '/delete') Delete this bird
           
-        div
-          #birdinfo
-            p #[strong #{bird.primary_name}]
-            p= bird.english_name
-            p= 'Scientific_name: ' + bird.scientific_name
-            p= 'Order: ' + bird.order
-            p= 'Family: ' + bird.family
-            p= 'Status: ' + bird.status
-            p= 'Length: ' + bird.size.length.value + ' ' + bird.size.length.units
-            p= 'Weight: ' + bird.size.weight.value + ' ' + bird.size.weight.units
-          img(src=`/${bird.photo.source}`)
+
+        #birdinfo
+          p #[strong #{bird.primary_name}]
+          p= bird.english_name
+          p= 'Scientific_name: ' + bird.scientific_name
+          p= 'Order: ' + bird.order
+          p= 'Family: ' + bird.family
+          p= 'Status: ' + bird.status
+          p= 'Length: ' + bird.size.length.value + ' ' + bird.size.length.units
+          p= 'Weight: ' + bird.size.weight.value + ' ' + bird.size.weight.units
+
+
+        img#birdimg(src=`/${bird.photo.source}`)
 
         //- form(method='POST' action='')
         //-   div.form-group
