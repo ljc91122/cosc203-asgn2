@@ -29,7 +29,6 @@ exports.bird_list = function (req, res, next) {
         .exec(function (err, list_birds) {
             if (err) { return next(err); }
             // Successful, so render.
-            //res.render('author_list', { title: 'Author List', author_list: list_birds });
             res.send(list_birds);
         })
 
@@ -90,8 +89,6 @@ exports.bird_update_post = [upload.single('birdpic'),
             // Extract the validation errors from a request.
             const errors = validationResult(req);
              
-            // Create Author object with escaped and trimmed data
-
             if (req.body.primary_name != null)
                 bird.primary_name = req.body.primary_name;
 
@@ -136,9 +133,6 @@ exports.bird_update_post = [upload.single('birdpic'),
                  // Save bird.
                  bird.save(function (err) {
                      if (err) { return next(err); }
-                     // Successful - redirect to new author record.
-                     //res.sendFile(path.join(__dirname, '../public/welcome.html'));
-                     //todo
                      res.redirect(`/bird/${bird._id}`);
                  });
         
@@ -155,7 +149,7 @@ exports.bird_delete_get = function (req, res, next) {
         //.select('primary_name photo')
         .exec(function (err, bird) {
             if (err) { return next(err); }
-            // Successful, so render.
+            // Successful, so redirect.
             res.redirect('/');
         })
 
@@ -188,7 +182,7 @@ exports.bird_create_post = [
     // Extract the validation errors from a request.
     const errors = validationResult(req);
      
-    // Create Author object with escaped and trimmed data
+    // Create Bird object with escaped and trimmed data
     var bird = new Bird(
          {
             primary_name: req.body.primary_name,
@@ -214,9 +208,6 @@ exports.bird_create_post = [
          // Save bird.
          bird.save(function (err) {
              if (err) { return next(err); }
-             // Successful - redirect to new author record.
-             //res.sendFile(path.join(__dirname, '../public/welcome.html'));
-             //todo
              res.redirect(`/bird/${bird._id}`);
          });
 
